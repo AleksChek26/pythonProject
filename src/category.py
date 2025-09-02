@@ -47,6 +47,7 @@ class Category:
         else:
             raise TypeError
 
+
     @property
     def products(self) -> str:
         """Геттер возвращает строку со всеми продуктами в приватном атрибуте products"""
