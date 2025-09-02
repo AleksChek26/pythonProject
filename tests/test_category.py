@@ -1,6 +1,6 @@
 import pytest
 
-
+from src.product import Product
 from src.category import Category
 
 def test_category(first_category: Category, second_category: Category) -> None:
@@ -26,12 +26,21 @@ def test_category_products_property(first_category: Category) -> None:
         "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n"
     )
 
+def test_category_add_product(first_category: Category) -> None:
+    """Тестируем метод для добавления продукта в атрибут products"""
+    product = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
+    assert len(first_category.products_in_list) == 3
+    first_category.add_product(product)
+
+    assert len(first_category.products_in_list) == 4
+
 def test_category_middle_price(first_category: Category) -> None:
     """Тестируем метод, который подсчитывает средний ценник всех товаров в данной категории,
     в том числе и случай, когда в категории нет товаров"""
     category_empty = Category("Пустая категория", "Категория без продуктов", [])
     assert first_category.middle_price() == 111629.63
     assert category_empty.middle_price() == 0
+
 
 def test_category_str(second_category: Category) -> None:
     """Тестируем строковое отображение товаров в категории"""
@@ -43,8 +52,3 @@ def test_category_add_product_invalid(first_category: Category) -> None:
     продукта другой объект - вызываем ошибку"""
     with pytest.raises(TypeError):
         first_category.add_product("Not a product")
-
-
-
-
-

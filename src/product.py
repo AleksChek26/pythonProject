@@ -26,11 +26,13 @@ class Product:
         *Название продукта, 80 руб. Остаток: 15 шт.*"""
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
+
     def __add__(self, other: "Product") -> float:
         """Метод для получения полной стоимости всех выбранных товаров на складе"""
         if type(other) is self.__class__:
             return self.__price * self.quantity + other.__price * other.quantity
         raise TypeError
+
 
     @classmethod
     def new_product(cls, product_dict: dict, products_list: List["Product"]) -> Any:

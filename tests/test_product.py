@@ -1,6 +1,7 @@
 import pytest
 
 from src.product import Product
+from src.category import Category
 
 
 def test_product_init(product: Product) -> None:
@@ -9,6 +10,23 @@ def test_product_init(product: Product) -> None:
     assert product.description == "256GB, Серый цвет, 200MP камера"
     assert product.price == 180000.0
     assert product.quantity == 5
+
+def test_product_new_product_different( first_category: Category) -> None:
+    """Тестируем метод, который принимает на вход параметры отличного от других наименований товара и возвращает
+    созданный объект класса Product"""
+    new_product = Product.new_product(
+        {
+            "name": "Samsung Galaxy S32 Ultra",
+            "description": "256GB, Серый цвет, 200MP камера",
+            "price": 180010.0,
+            "quantity": 5,
+        },
+        first_category.products_list,
+    )
+    assert new_product.name == "Samsung Galaxy S32 Ultra"
+    assert new_product.description == "256GB, Серый цвет, 200MP камера"
+    assert new_product.price == 180010.0
+    assert new_product.quantity == 5
 
 def test_product_str(product: Product) -> None:
     """Тестируем строковое отображение продукта"""
