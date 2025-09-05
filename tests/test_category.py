@@ -10,10 +10,8 @@ def test_category(first_category: Category, second_category: Category) -> None:
         "Смартфоны, как средство не только коммуникации," " но и получения дополнительных функций"
     )
     assert len(first_category.products_in_list) == 3
-
     assert first_category.category_count == 2
     assert second_category.category_count == 2
-
     assert first_category.product_count == 4
     assert second_category.product_count == 4
 
@@ -31,7 +29,6 @@ def test_category_add_product(first_category: Category) -> None:
     product = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
     assert len(first_category.products_in_list) == 3
     first_category.add_product(product)
-
     assert len(first_category.products_in_list) == 4
 
 def test_category_middle_price(first_category: Category) -> None:
