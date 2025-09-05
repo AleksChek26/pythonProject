@@ -44,3 +44,11 @@ def test_product_init_invalid() -> None:
 def test_product_add(product: Product, other_product: Product) -> None:
     """Тестируем метод получения полной стоимости всех выбранных товаров на складе"""
     assert product + other_product == 2580000
+
+def test_category_add_product(first_category: Category) -> None:
+    """Тестируем метод для добавления продукта в атрибут products"""
+    product = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
+    assert len(first_category.products_in_list) == 3
+    first_category.add_product(product)
+    assert len(first_category.products_in_list) == 4
+    
