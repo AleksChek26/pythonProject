@@ -29,7 +29,6 @@ class Category:
             quantity_sum += product.quantity
         return f"{self.name}, количество продуктов: {quantity_sum} шт."
 
-
     def add_product(self, product: Product) -> None:
         """Метод для добавления продукта в атрибут products"""
         if isinstance(product, Product):

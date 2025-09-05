@@ -11,6 +11,7 @@ def test_product_init(product: Product) -> None:
     assert product.price == 180000.0
     assert product.quantity == 5
 
+
 def test_product_new_product_different( first_category: Category) -> None:
     """Тестируем метод, который принимает на вход параметры отличного от других наименований товара и возвращает
     созданный объект класса Product"""
