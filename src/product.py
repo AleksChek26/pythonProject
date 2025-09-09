@@ -1,8 +1,10 @@
 from typing import Any, List
 
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
 from src.exceptions import ZeroQuantityProduct
 
-class Product:
+class Product(BaseProduct, PrintMixin):
     """Класс для хранения товаров"""
 
     name: str
