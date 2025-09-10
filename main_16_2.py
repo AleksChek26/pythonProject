@@ -1,6 +1,7 @@
 from src.category import Category
 from src.product import Product
 from src.smartphone import Smartphone
+from src.order import Order
 
 
 if __name__ == '__main__':
@@ -45,3 +46,7 @@ if __name__ == '__main__':
 
     print(Category.category_count)
     print(Category.product_count)
+
+    order1 = Order(product1, 2)
+    print(order1)
+    
